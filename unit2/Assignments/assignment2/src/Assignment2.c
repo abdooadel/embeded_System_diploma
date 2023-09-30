@@ -55,32 +55,75 @@ int main(void) {
 
 	//Ex5 check alphabet
 
-//	char alpha;
-//	printf("Enter a character: ");
-//	fflush(stdin);
-//	fflush(stdout);
-//	scanf("%c",&alpha);
-//	if ((alpha >= 65 && alpha<91) || (alpha >= 97 && alpha< 122) )
-//		printf("%c is an alphabet",alpha);
-//	else
-//		printf("%c is not an alphabet",alpha);
+	//	char alpha;
+	//	printf("Enter a character: ");
+	//	fflush(stdin);
+	//	fflush(stdout);
+	//	scanf("%c",&alpha);
+	//	if ((alpha >= 65 && alpha<91) || (alpha >= 97 && alpha< 122) )
+	//		printf("%c is an alphabet",alpha);
+	//	else
+	//		printf("%c is not an alphabet",alpha);
+
+	//
+	//
+	//	//Ex6 sum of numbers
+	//
+	//	int n,summ;
+	//	printf("Enter an integer: ");
+	//	fflush(stdin);
+	//	fflush(stdout);
+	//	scanf("%d",&n);
+	//	for(int i=0;i<=n;i++)
+	//	{
+	//		summ+=i;
+	//	}
+	//	printf("Sum = %d",summ);
+	//
+
+
+	//Ex8 Calculator
+
+	char op;
+	float n1,n2,num10=0;
+	printf("Enter operator either + or - or * or divide : ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%c",&op);
+	printf("Enter two operands : ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%f %f",&n1,&n2);
+	switch(op){
+	case '+':
+	{
+		num10=n1+n2;
+	}
+	break;
+	case '-':
+	{
+		num10=n1-n2;
+	}
+	break;
+	case '*':
+	{
+		num10=n1*n2;
+	}
+	break;
+	case '/':
+	{
+		num10=n1/n2;
+	}
+	break;
+	default:
+		printf("wrong input");
+		break;
+
+	}
 
 
 
-	//Ex6 sum of numbers
-
-		int n,summ;
-		printf("Enter an integer: ");
-		fflush(stdin);
-		fflush(stdout);
-		scanf("%d",&n);
-		for(int i=0;i<=n;i++)
-		{
-			summ+=i;
-		}
-		printf("Sum = %d",summ);
-
-
+	printf("%f %c %f = %f",n1,op,n2,num10);
 
 
 
