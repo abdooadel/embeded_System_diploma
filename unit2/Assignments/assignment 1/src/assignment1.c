@@ -17,6 +17,15 @@ int main(void) {
 
 	printf("C Programming");
 
+	//Ex2
+	int num;
+	printf("\nEnter a integer: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d",&num);
+	printf("\nYou entered: %d",num);
+
+	//Ex3
 
 	return EXIT_SUCCESS;
 }
