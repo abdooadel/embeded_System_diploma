@@ -26,6 +26,13 @@ int main(void) {
 	printf("\nYou entered: %d",num);
 
 	//Ex3
+	int num1,num2;
+	printf("\nEnter two integer: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d %d",&num1,&1um2);
+	printf("\nSum:  %d",num1+num2);
+
 
 	return EXIT_SUCCESS;
 }
