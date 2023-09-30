@@ -13,41 +13,57 @@
 
 int main(void) {
 
-//	//Ex1
-//
-//	printf("C Programming");
-//
-//	//Ex2
-//	int num;
-//	printf("\nEnter a integer: ");
-//	fflush(stdin);
-//	fflush(stdout);
-//	scanf("%d",&num);
-//	printf("\nYou entered: %d",num);
-//
-//	//Ex3
-//	int num1,num2;
-//	printf("\nEnter two integer: ");
-//	fflush(stdin);
-//	fflush(stdout);
-//	scanf("%d %d",&num1,&num2);
-//	printf("\nSum:  %d",num1+num2);
-//
-//	//Ex4
-//	float num11,num22;
-//	printf("\nEnter two Floating Point Numbers: ");
-//	fflush(stdin);
-//	fflush(stdout);
-//	scanf("%f %f",&num11,&num22);
-//	printf("\nSum:  %f",num11*num22);
+	//Ex1
+
+	printf("C Programming");
+
+	//Ex2
+	int num;
+	printf("\nEnter a integer: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d",&num);
+	printf("\nYou entered: %d",num);
+
+	//Ex3
+	int num1,num2;
+	printf("\nEnter two integer: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d %d",&num1,&num2);
+	printf("\nSum:  %d",num1+num2);
+
+	//Ex4
+	float num11,num22;
+	printf("\nEnter two Floating Point Numbers: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%f %f",&num11,&num22);
+	printf("\nSum:  %f",num11*num22);
 
 	//Ex5
 	char input;
-	printf("Enter a character: ");
+	printf("\nEnter a character: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%c",&input);
-	printf("ASCII value of %c = %d",input,input);
+	printf("\nASCII value of %c = %d",input,input);
+
+	//Ex6
+	float a,b,c;
+	printf("\nEnter value of a: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%f",&a);
+	printf("\nEnter value of b: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%f",&b);
+	c=b;
+	b=a;
+	printf("After swapping, value of a = %f",c);
+	printf("After swapping, value of b = %f",b);
+
 
 
 
