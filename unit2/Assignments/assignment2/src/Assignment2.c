@@ -39,33 +39,46 @@ int main(void) {
 	//		printf("\n%c is a consonant",try);
 
 	// Ex3  find biggest of three numbers
-//	float num1,num2,num3,big_num;
-//	printf("Enter three numbers: ");
+	//	float num1,num2,num3,big_num;
+	//	printf("Enter three numbers: ");
+	//	fflush(stdin);
+	//	fflush(stdout);
+	//	scanf("%f %f %f",&num1,&num2,&num3);
+	//	if(num1>num2 && num1>num3)
+	//		big_num=num1;
+	//	else if (num2>num1 &&num2>num3)
+	//		big_num=num2;
+	//	else
+	//		big_num=num3;
+	//	printf("Largest number = %f",big_num);
+
+
+	//Ex5 check alphabet
+
+//	char alpha;
+//	printf("Enter a character: ");
 //	fflush(stdin);
 //	fflush(stdout);
-//	scanf("%f %f %f",&num1,&num2,&num3);
-//	if(num1>num2 && num1>num3)
-//		big_num=num1;
-//	else if (num2>num1 &&num2>num3)
-//		big_num=num2;
+//	scanf("%c",&alpha);
+//	if ((alpha >= 65 && alpha<91) || (alpha >= 97 && alpha< 122) )
+//		printf("%c is an alphabet",alpha);
 //	else
-//		big_num=num3;
-//	printf("Largest number = %f",big_num);
+//		printf("%c is not an alphabet",alpha);
 
-	//Ex4 check alphabet
 
-	char alpha;
-	printf("Enter a character: ");
+
+	//Ex6 sum of numbers
+
+		int n,summ;
+		printf("Enter an integer: ");
 		fflush(stdin);
 		fflush(stdout);
-		scanf("%c",&alpha);
-		if ((alpha >= 65 && alpha<91) || (alpha >= 97 && alpha< 122) )
-			printf("%c is an alphabet",alpha);
-		else
-			printf("%c is not an alphabet",alpha);
-
-
-
+		scanf("%d",&n);
+		for(int i=0;i<=n;i++)
+		{
+			summ+=i;
+		}
+		printf("Sum = %d",summ);
 
 
 
