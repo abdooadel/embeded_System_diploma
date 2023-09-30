@@ -30,8 +30,16 @@ int main(void) {
 	printf("\nEnter two integer: ");
 	fflush(stdin);
 	fflush(stdout);
-	scanf("%d %d",&num1,&1um2);
+	scanf("%d %d",&num1,&num2);
 	printf("\nSum:  %d",num1+num2);
+
+	//Ex4
+	float num11,num22;
+	printf("\nEnter two Floating Point Numbers: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%f %f",&num11,&num22);
+	printf("\nSum:  %f",num11*num22);
 
 
 	return EXIT_SUCCESS;
