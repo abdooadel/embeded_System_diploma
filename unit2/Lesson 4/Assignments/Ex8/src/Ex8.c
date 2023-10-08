@@ -13,6 +13,7 @@
 #include <string.h>
 
 int main(void) {
+	for(short i=0;i>=(unsigned short)0;i++);
 	char text[50];
 	printf("Enter a string");
 	fflush(stdin); fflush(stdout);
@@ -22,5 +23,7 @@ int main(void) {
 	{
 		printf("%c",text[i-1]);
 	}
+
+
 	return EXIT_SUCCESS;
 }
