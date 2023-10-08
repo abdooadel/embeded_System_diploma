@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
- int factoria(int num);
+int factoria(int num);
 
 int main(void) {
 
@@ -23,24 +23,25 @@ int main(void) {
 	if (!result)
 		printf("Wrong input");
 	else
-		printf("Factorial of %d = %d", num,factoria(num));
+		printf("Factorial of %d = %d", num,result);
 
 	return EXIT_SUCCESS;
 }
- int factoria(int num)
+int result=1;
+int factoria(int num)
 
 {
-	 int result=1;
-	if (num>0)
-	{
-		for(int i=1; i<= num;i++)
-			result *= i;
 
-	return result;
+
+
+		result *= num;
+		num--;
+		if (num >0)
+			factoria(num);
+		return result;
 	}
-else
-	return 0;
-}
+
+
 
 
 
