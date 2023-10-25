@@ -10,7 +10,7 @@
 
  void (*PS_state)();
   int pressure_val=0;
- int timer_val=10000;
+ int timer_val=100000;
 
 void PS_init(){
 

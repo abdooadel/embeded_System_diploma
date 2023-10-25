@@ -6,9 +6,9 @@ LIBS=
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 As = $(wildcard *.s)
-Project_name = Project
+Project_name = Pressure_detecting
 
-all: $(Project_name).elf
+all: $(Project_name).bin
 	@echo "BUILD IS DONE"
 	
 
@@ -18,7 +18,8 @@ all: $(Project_name).elf
 $(Project_name).elf: $(AsOBJ) $(OBJ)
 	$(CC)ld.exe  -T linker_script.ld $(LIBS) $(AsOBJ) $(OBJ) -o $@ -Map=Map_file.map
 
-	
+$(Project_name).bin:$(Project_name).elf
+	$(CC)objcopy.exe -O binary $< $@
 
 clean_all:
 	rm *.o *.elf *.bin

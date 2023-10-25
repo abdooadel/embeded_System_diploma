@@ -6,7 +6,7 @@
  */
 #include "AM.h"
 
-int alarm_time=6000;
+int alarm_time=600000;
 void (*AM_state)();
 
 define_state(AM_ON){
