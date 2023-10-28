@@ -1,0 +1,702 @@
+21:31:48 **** Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "Lab.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Master Embeded system course\Workspace\Unit_6\Lesson_2\Lab\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab.elf
+ 
+arm-none-eabi-size   Lab.elf 
+arm-none-eabi-objdump -h -S  Lab.elf  > "Lab.list"
+arm-none-eabi-objcopy  -O binary  Lab.elf  "Lab.bin"
+   text	   data	    bss	    dec	    hex	filename
+    556	      8	   1568	   2132	    854	Lab.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab.bin
+Finished building: Lab.list
+ 
+ 
+21:49:08 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:31: error: expected expression before ')' token
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                               ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:149:32: error: expected expression before ')' token
+ #define EXT1_RTSR   *(vuint32 *)(EXT1_base+0x08)
+                                ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:153:34: error: expected expression before ')' token
+ #define AFIO_EXTICR1  *(vuint32 *)(AFIO_base+0x08)
+                                  ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:31: error: expected expression before ')' token
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                               ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:49:31 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:31: error: expected expression before ')' token
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                               ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:149:32: error: expected expression before ')' token
+ #define EXT1_RTSR   *(vuint32 *)(EXT1_base+0x08)
+                                ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:153:34: error: expected expression before ')' token
+ #define AFIO_EXTICR1  *(vuint32 *)(AFIO_base+0x08)
+                                  ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:31: error: expected expression before ')' token
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                               ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:50:27 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:31: error: expected expression before ')' token
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                               ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:149:32: error: expected expression before ')' token
+ #define EXT1_RTSR   *(vuint32 *)(EXT1_base+0x08)
+                                ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:153:34: error: expected expression before ')' token
+ #define AFIO_EXTICR1  *(vuint32 *)(AFIO_base+0x08)
+                                  ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:31: error: expected expression before ')' token
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                               ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:51:01 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:31: error: expected expression before ')' token
+ #define EXT1_IMR   *(vuint32 *)(EXT1_base+0x00)
+                               ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:175:19: error: expected ')' before ';' token
+  EXT1_RTSR |= 1<<0;
+                   ^
+../Src/main.c:182:1: error: expected ';' before '}' token
+ }
+ ^
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:31: error: expected expression before ')' token
+ #define EXT1_PR    *(vuint32 *)(EXT1_base+0x14)
+                               ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:51:29 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 *(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 *(EXT1_base+0x00)
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:174:18: error: expected ')' before ';' token
+  EXT1_IMR |= 1<<0;
+                  ^
+../Src/main.c:189:1: error: expected declaration or statement at end of input
+ }
+ ^
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:52:13 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 * (EXT1_base+0x00))
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 * (EXT1_base+0x00))
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:153:34: error: expected expression before ')' token
+ #define AFIO_EXTICR1  *(vuint32 *)(AFIO_base+0x08)
+                                  ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *(EXT1_base+0x14)
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:186:17: error: expected ')' before ';' token
+  EXT1_PR |= 1<<0;
+                 ^
+../Src/main.c:189:1: error: expected ';' before '}' token
+ }
+ ^
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:52:44 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 * (EXT1_base+0x00))
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 * (EXT1_base+0x00))
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:153:34: error: expected expression before ')' token
+ #define AFIO_EXTICR1  *(vuint32 *)(AFIO_base+0x08)
+                                  ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *(EXT1_base+0x14))
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:52:54 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_IMR   *(vuint32 * (EXT1_base+0x00))
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:22: note: each undeclared identifier is reported only once for each function it appears in
+ #define EXT1_IMR   *(vuint32 * (EXT1_base+0x00))
+                      ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:22: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define EXT1_PR    *(vuint32 *(EXT1_base+0x14))
+                      ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:53:25 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:147:22: error: expected ')' before numeric constant
+ #define EXT1_base    0x40010400
+                      ^
+../Src/main.c:148:35: note: in expansion of macro 'EXT1_base'
+ #define EXT1_IMR   *(vuint32_t * (EXT1_base+0x00))
+                                   ^~~~~~~~~
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:147:22: error: expected ')' before numeric constant
+ #define EXT1_base    0x40010400
+                      ^
+../Src/main.c:149:36: note: in expansion of macro 'EXT1_base'
+ #define EXT1_RTSR   *(vuint32_t * (EXT1_base+0x08))
+                                    ^~~~~~~~~
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:153:25: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define AFIO_EXTICR1  *(vuint32 *(AFIO_base+0x08))
+                         ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c:153:25: note: each undeclared identifier is reported only once for each function it appears in
+ #define AFIO_EXTICR1  *(vuint32 *(AFIO_base+0x08))
+                         ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:147:22: error: expected ')' before numeric constant
+ #define EXT1_base    0x40010400
+                      ^
+../Src/main.c:150:35: note: in expansion of macro 'EXT1_base'
+ #define EXT1_PR    *(vuint32_t  *(EXT1_base+0x14))
+                                   ^~~~~~~~~
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:54:46 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:147:20: error: expected ')' before numeric constant
+ #define EXT1_base  0x40010400
+                    ^
+../Src/main.c:148:35: note: in expansion of macro 'EXT1_base'
+ #define EXT1_IMR   *(vuint32_t * (EXT1_base+0x00))
+                                   ^~~~~~~~~
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:147:20: error: expected ')' before numeric constant
+ #define EXT1_base  0x40010400
+                    ^
+../Src/main.c:149:36: note: in expansion of macro 'EXT1_base'
+ #define EXT1_RTSR   *(vuint32_t * (EXT1_base+0x08))
+                                    ^~~~~~~~~
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:152:22: error: expected ')' before numeric constant
+ #define AFIO_base    0x40010000
+                      ^
+../Src/main.c:153:37: note: in expansion of macro 'AFIO_base'
+ #define AFIO_EXTICR1  *(vuint32_t *(AFIO_base+0x08))
+                                     ^~~~~~~~~
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:147:20: error: expected ')' before numeric constant
+ #define EXT1_base  0x40010400
+                    ^
+../Src/main.c:150:35: note: in expansion of macro 'EXT1_base'
+ #define EXT1_PR    *(vuint32_t  *(EXT1_base+0x14))
+                                   ^~~~~~~~~
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:56:25 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:33: error: invalid type argument of unary '*' (have 'int')
+ #define EXT1_IMR   *(vuint32_t )* (EXT1_base+0x00))
+                                 ^~~~~~~~~~~~~~~~~~
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:51: error: expected ';' before ')' token
+ #define EXT1_IMR   *(vuint32_t )* (EXT1_base+0x00))
+                                                   ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:51: error: expected statement before ')' token
+ #define EXT1_IMR   *(vuint32_t )* (EXT1_base+0x00))
+                                                   ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:174:11: error: expected expression before '|=' token
+  EXT1_IMR |= 1<<0;
+           ^~
+../Src/main.c:149:34: error: invalid type argument of unary '*' (have 'int')
+ #define EXT1_RTSR   *(vuint32_t )* (EXT1_base+0x08))
+                                  ^~~~~~~~~~~~~~~~~~
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:149:52: error: expected ';' before ')' token
+ #define EXT1_RTSR   *(vuint32_t )* (EXT1_base+0x08))
+                                                    ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:149:52: error: expected statement before ')' token
+ #define EXT1_RTSR   *(vuint32_t )* (EXT1_base+0x08))
+                                                    ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:175:12: error: expected expression before '|=' token
+  EXT1_RTSR |= 1<<0;
+            ^~
+../Src/main.c:153:36: error: invalid type argument of unary '*' (have 'int')
+ #define AFIO_EXTICR1  *(vuint32_t) *(AFIO_base+0x08))
+                                    ^~~~~~~~~~~~~~~~~
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c:153:53: error: expected ';' before ')' token
+ #define AFIO_EXTICR1  *(vuint32_t) *(AFIO_base+0x08))
+                                                     ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c:153:53: error: expected statement before ')' token
+ #define AFIO_EXTICR1  *(vuint32_t) *(AFIO_base+0x08))
+                                                     ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c:176:15: error: expected expression before '&=' token
+  AFIO_EXTICR1 &= ~(1<<0);
+               ^~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:34: error: invalid type argument of unary '*' (have 'int')
+ #define EXT1_PR    *(vuint32_t  )*(EXT1_base+0x14))
+                                  ^~~~~~~~~~~~~~~~~
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:51: error: expected ';' before ')' token
+ #define EXT1_PR    *(vuint32_t  )*(EXT1_base+0x14))
+                                                   ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:51: error: expected statement before ')' token
+ #define EXT1_PR    *(vuint32_t  )*(EXT1_base+0x14))
+                                                   ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:186:10: error: expected expression before '|=' token
+  EXT1_PR |= 1<<0;
+          ^~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:56:50 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:148:51: error: expected ';' before ')' token
+ #define EXT1_IMR   *(vuint32_t *) (EXT1_base+0x00))
+                                                   ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:148:51: error: expected statement before ')' token
+ #define EXT1_IMR   *(vuint32_t *) (EXT1_base+0x00))
+                                                   ^
+../Src/main.c:174:2: note: in expansion of macro 'EXT1_IMR'
+  EXT1_IMR |= 1<<0;
+  ^~~~~~~~
+../Src/main.c:174:11: error: expected expression before '|=' token
+  EXT1_IMR |= 1<<0;
+           ^~
+../Src/main.c:149:52: error: expected ';' before ')' token
+ #define EXT1_RTSR   *(vuint32_t *) (EXT1_base+0x08))
+                                                    ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:149:52: error: expected statement before ')' token
+ #define EXT1_RTSR   *(vuint32_t *) (EXT1_base+0x08))
+                                                    ^
+../Src/main.c:175:2: note: in expansion of macro 'EXT1_RTSR'
+  EXT1_RTSR |= 1<<0;
+  ^~~~~~~~~
+../Src/main.c:175:12: error: expected expression before '|=' token
+  EXT1_RTSR |= 1<<0;
+            ^~
+../Src/main.c:153:53: error: expected ';' before ')' token
+ #define AFIO_EXTICR1  *(vuint32_t *)(AFIO_base+0x08))
+                                                     ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c:153:53: error: expected statement before ')' token
+ #define AFIO_EXTICR1  *(vuint32_t *)(AFIO_base+0x08))
+                                                     ^
+../Src/main.c:176:2: note: in expansion of macro 'AFIO_EXTICR1'
+  AFIO_EXTICR1 &= ~(1<<0);
+  ^~~~~~~~~~~~
+../Src/main.c:176:15: error: expected expression before '&=' token
+  AFIO_EXTICR1 &= ~(1<<0);
+               ^~
+../Src/main.c: In function 'EXTI1_IRQHandler':
+../Src/main.c:150:51: error: expected ';' before ')' token
+ #define EXT1_PR    *(vuint32_t  *)(EXT1_base+0x14))
+                                                   ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:150:51: error: expected statement before ')' token
+ #define EXT1_PR    *(vuint32_t  *)(EXT1_base+0x14))
+                                                   ^
+../Src/main.c:186:2: note: in expansion of macro 'EXT1_PR'
+  EXT1_PR |= 1<<0;
+  ^~~~~~~
+../Src/main.c:186:10: error: expected expression before '|=' token
+  EXT1_PR |= 1<<0;
+          ^~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:57:28 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Lab.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Master Embeded system course\Workspace\Unit_6\Lesson_2\Lab\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab.elf
+ 
+arm-none-eabi-objdump -h -S  Lab.elf  > "Lab.list"
+arm-none-eabi-objcopy  -O binary  Lab.elf  "Lab.bin"
+arm-none-eabi-size   Lab.elf 
+   text	   data	    bss	    dec	    hex	filename
+    760	     20	   1564	   2344	    928	Lab.elf
+Finished building: default.size.stdout
+Finished building: Lab.list
+Finished building: Lab.bin
+ 
+ 
+ 
+22:11:13 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:27:25: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define RCC_APB2ENR   *(vuint32* RCC_base+ 0X18)
+                         ^
+../Src/main.c:169:2: note: in expansion of macro 'RCC_APB2ENR'
+  RCC_APB2ENR |= 1<<0;
+  ^~~~~~~~~~~
+../Src/main.c:27:25: note: each undeclared identifier is reported only once for each function it appears in
+ #define RCC_APB2ENR   *(vuint32* RCC_base+ 0X18)
+                         ^
+../Src/main.c:169:2: note: in expansion of macro 'RCC_APB2ENR'
+  RCC_APB2ENR |= 1<<0;
+  ^~~~~~~~~~~
+../Src/main.c:30:31: error: expected expression before ')' token
+ #define GPIOA_CRL   *(vuint32*)( GPIOA_base+ 0x00)
+                               ^
+../Src/main.c:180:2: note: in expansion of macro 'GPIOA_CRL'
+  GPIOA_CRL |= 1<<2;
+  ^~~~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:11:39 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:27:25: error: 'vuint32' undeclared (first use in this function); did you mean 'uint32'?
+ #define RCC_APB2ENR   *(vuint32*) (RCC_base+ 0X18)
+                         ^
+../Src/main.c:169:2: note: in expansion of macro 'RCC_APB2ENR'
+  RCC_APB2ENR |= 1<<0;
+  ^~~~~~~~~~~
+../Src/main.c:27:25: note: each undeclared identifier is reported only once for each function it appears in
+ #define RCC_APB2ENR   *(vuint32*) (RCC_base+ 0X18)
+                         ^
+../Src/main.c:169:2: note: in expansion of macro 'RCC_APB2ENR'
+  RCC_APB2ENR |= 1<<0;
+  ^~~~~~~~~~~
+../Src/main.c:27:33: error: expected expression before ')' token
+ #define RCC_APB2ENR   *(vuint32*) (RCC_base+ 0X18)
+                                 ^
+../Src/main.c:169:2: note: in expansion of macro 'RCC_APB2ENR'
+  RCC_APB2ENR |= 1<<0;
+  ^~~~~~~~~~~
+../Src/main.c:27:33: error: expected expression before ')' token
+ #define RCC_APB2ENR   *(vuint32*) (RCC_base+ 0X18)
+                                 ^
+../Src/main.c:170:2: note: in expansion of macro 'RCC_APB2ENR'
+  RCC_APB2ENR |= 1<<1;
+  ^~~~~~~~~~~
+../Src/main.c:30:31: error: expected expression before ')' token
+ #define GPIOA_CRL   *(vuint32*)( GPIOA_base+ 0x00)
+                               ^
+../Src/main.c:180:2: note: in expansion of macro 'GPIOA_CRL'
+  GPIOA_CRL |= 1<<2;
+  ^~~~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:11:59 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Lab.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Master Embeded system course\Workspace\Unit_6\Lesson_2\Lab\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab.elf
+ 
+arm-none-eabi-objdump -h -S  Lab.elf  > "Lab.list"
+arm-none-eabi-objcopy  -O binary  Lab.elf  "Lab.bin"
+arm-none-eabi-size   Lab.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	     20	   1564	   2380	    94c	Lab.elf
+Finished building: default.size.stdout
+Finished building: Lab.list
+Finished building: Lab.bin
+ 
+ 
+ 
+22:24:15 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Lab.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Master Embeded system course\Workspace\Unit_6\Lesson_2\Lab\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab.elf
+ 
+arm-none-eabi-objdump -h -S  Lab.elf  > "Lab.list"
+arm-none-eabi-objcopy  -O binary  Lab.elf  "Lab.bin"
+arm-none-eabi-size   Lab.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	     20	   1564	   2380	    94c	Lab.elf
+Finished building: default.size.stdout
+Finished building: Lab.list
+ 
+Finished building: Lab.bin
+ 
+ 
+22:33:53 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Lab.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Master Embeded system course\Workspace\Unit_6\Lesson_2\Lab\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab.elf
+ 
+arm-none-eabi-objdump -h -S  Lab.elf  > "Lab.list"
+arm-none-eabi-objcopy  -O binary  Lab.elf  "Lab.bin"
+arm-none-eabi-size   Lab.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	     20	   1564	   2380	    94c	Lab.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab.list
+Finished building: Lab.bin
+ 
+ 

@@ -1,0 +1,20 @@
+22:33:53 **** Incremental Build of configuration Debug for project Lab ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Lab.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Master Embeded system course\Workspace\Unit_6\Lesson_2\Lab\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab.elf
+ 
+arm-none-eabi-objdump -h -S  Lab.elf  > "Lab.list"
+arm-none-eabi-objcopy  -O binary  Lab.elf  "Lab.bin"
+arm-none-eabi-size   Lab.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	     20	   1564	   2380	    94c	Lab.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab.list
+Finished building: Lab.bin
+ 
+ 
+
+22:33:54 Build Finished. 0 errors, 0 warnings. (took 832ms)
+
