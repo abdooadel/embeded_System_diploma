@@ -8,6 +8,8 @@ HAL\LCD.c
 
 MCAL\GPIO..c
 
+MCAL\UART.c
+
 src\ASF\mega\boards\stk600\rcx_x\init.c
 
 src\main.c

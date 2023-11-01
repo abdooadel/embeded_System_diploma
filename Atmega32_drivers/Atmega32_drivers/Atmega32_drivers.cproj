@@ -253,6 +253,12 @@
     <None Include="src\ASF\common\utils\interrupt.h">
       <SubType>compile</SubType>
     </None>
+    <Compile Include="MCAL\includes\UART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\ASF\mega\boards\stk600\rcx_x\init.c">
       <SubType>compile</SubType>
     </Compile>

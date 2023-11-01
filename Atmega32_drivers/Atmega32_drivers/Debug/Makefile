@@ -59,6 +59,7 @@ C_SRCS +=  \
 ../HAL/KEYPAD.c \
 ../HAL/LCD.c \
 ../MCAL/GPIO..c \
+../MCAL/UART.c \
 ../src/ASF/mega/boards/stk600/rcx_x/init.c \
 ../src/main.c
 
@@ -73,6 +74,7 @@ OBJS +=  \
 HAL/KEYPAD.o \
 HAL/LCD.o \
 MCAL/GPIO..o \
+MCAL/UART.o \
 src/ASF/mega/boards/stk600/rcx_x/init.o \
 src/main.o
 
@@ -80,6 +82,7 @@ OBJS_AS_ARGS +=  \
 HAL/KEYPAD.o \
 HAL/LCD.o \
 MCAL/GPIO..o \
+MCAL/UART.o \
 src/ASF/mega/boards/stk600/rcx_x/init.o \
 src/main.o
 
@@ -87,6 +90,7 @@ C_DEPS +=  \
 HAL/KEYPAD.d \
 HAL/LCD.d \
 MCAL/GPIO..d \
+MCAL/UART.d \
 src/ASF/mega/boards/stk600/rcx_x/init.d \
 src/main.d
 
@@ -94,6 +98,7 @@ C_DEPS_AS_ARGS +=  \
 HAL/KEYPAD.d \
 HAL/LCD.d \
 MCAL/GPIO..d \
+MCAL/UART.d \
 src/ASF/mega/boards/stk600/rcx_x/init.d \
 src/main.d
 
@@ -126,6 +131,13 @@ HAL/LCD.o: ../HAL/LCD.c
 	
 
 MCAL/GPIO..o: ../MCAL/GPIO..c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config" -I"../MCAL/includes" -I"../HAL/includes"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/UART.o: ../MCAL/UART.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config" -I"../MCAL/includes" -I"../HAL/includes"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

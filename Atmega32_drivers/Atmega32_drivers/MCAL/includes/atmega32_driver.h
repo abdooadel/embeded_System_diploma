@@ -42,6 +42,19 @@
 
 
 
+// UART MEMORY MAP
+
+#define UART_UBRRL			*((volatile uint8_t*) (0x29))
+#define UART_UCSRA			*((volatile uint8_t*) (0x2B))
+#define UART_UCSRB			*((volatile uint8_t*) (0x2A))
+#define UART_UBRRH			*((volatile uint8_t*) (0x40))
+#define UART_UCSRC			*((volatile uint8_t*) (0x40))
+#define UART_UCSRB			*((volatile uint8_t*) (0x2A))
+#define UART_UDR			*((volatile uint8_t*) (0x2C))
+#define UART_UCSRA			*((volatile uint8_t*) (0x2B))
+ 
+
+
 
 
 
