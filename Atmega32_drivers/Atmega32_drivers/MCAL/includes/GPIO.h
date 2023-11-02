@@ -41,7 +41,7 @@ typedef struct{
 
 
 //@ref GPIO_MODE_define
-#define GPIO_MODE_INPUT_FLO						0
+#define GPIO_MODE_INPUT_FLO							0
 #define GPIO_MODE_INPUT_PU							1
 #define GPIO_MODE_OUTPUT							2
 

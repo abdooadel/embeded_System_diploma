@@ -57,8 +57,11 @@
 
 
 
+// SPI MEMORY MAP
 
-
+#define SPI_SPDR			*((volatile uint8_t*) (0x2F))
+#define SPI_SPSR			*((volatile uint8_t*) (0x2E))
+#define SPI_SPCR			*((volatile uint8_t*) (0x2D))
 
 
 
