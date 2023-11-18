@@ -2,7 +2,7 @@
  * Stm32_F103C6_GPIO_drivers.h
  *
  *  Created on: Oct 29, 2023
- *      Author: abdoo
+ *      Author: Abdelrahman	Elshahat
  */
 
 #ifndef GPIO_DRIVER_INC_STM32_F103C6_GPIO_DRIVERS_H_
@@ -94,18 +94,18 @@ typedef struct{
 
 #define GPPIO_SPEED_10M						0x00000001u
 #define GPPIO_SPEED_2M						0x00000002u
-#define GPPIO_SPEED_50M						0x0000000#u
+#define GPPIO_SPEED_50M						0x00000003u
 
 
 
 //@ref GPIO_PIN_state
-#define GPIO_PIN_set			1
-#define GPIO_PIN_reset			0
+#define GPIO_PIN_set						1
+#define GPIO_PIN_reset						0
 
 
 //@ref @ref GPIO_RETURN_LOCK
-#define GPIO_RETURN_LOCK_ENABLE		1
-#define GPIO_RETURN_LOCK_ERROR		0
+#define GPIO_RETURN_LOCK_ENABLE				1
+#define GPIO_RETURN_LOCK_ERROR				0
 
 
 

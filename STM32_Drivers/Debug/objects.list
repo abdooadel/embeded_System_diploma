@@ -4,6 +4,7 @@
 "MCAL/Stm32_F103C6_EXTI_drivers.o"
 "MCAL/Stm32_F103C6_GPIO_drivers.o"
 "MCAL/Stm32_F103C6_RCC_drivers.o"
+"MCAL/Stm32_F103C6_SPI_drivers.o"
 "MCAL/Stm32_F103C6_USART_drivers.o"
 "Src/main.o"
 "Src/syscalls.o"

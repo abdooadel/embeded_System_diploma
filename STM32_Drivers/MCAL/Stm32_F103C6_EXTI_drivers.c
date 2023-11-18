@@ -1,5 +1,5 @@
 /*
- * Stm32_F103C6_GPIO_drivers.c
+ * Stm32_F103C6_EXTI_drivers.c
  *
  *  Created on: Oct 29, 2023
  *      Author: Abdelrahman Elshahat

@@ -1,7 +1,7 @@
 /*
  * Stm32_F103C6_USART_drivers.c
  *
- *  Created on: Oct 29, 2023
+ *  Created on: NOV 18, 2023
  *      Author: Abdelrahman Elshahat
  */
 
@@ -206,7 +206,6 @@ void MCAL_USART_TC(USART_TypeDef *USARTx )
  * @retval 		-none
  * Note			-
  */
-
 void MCAL_USART_RecieveData(USART_TypeDef *USARTx ,uint16_t *pTxBuffer, enum Polling_mechanism PollingEn)
 {
 
